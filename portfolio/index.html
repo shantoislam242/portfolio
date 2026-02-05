@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shanto Islam - Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(-45deg, #0f172a, #1e293b, #312e81, #1e3a8a);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .typewriter {
+        overflow: hidden;
+        border-right: 3px solid #60a5fa;
+        white-space: nowrap;
+        animation: typing 3.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #60a5fa;
+        }
+      }
+
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .skill-bar {
+        transition: width 1.5s ease;
+      }
+
+      .project-card {
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(96, 165, 250, 0.3);
+      }
+
+      #scrollTop {
+        transition: all 0.3s ease;
+      }
+
+      .nav-active {
+        color: #60a5fa !important;
+        border-bottom: 2px solid #60a5fa;
+      }
+
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .glow-button {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .glow-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(96, 165, 250, 0.5);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .glow-button:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(96, 165, 250, 0.5);
+        pointer-events: none;
+      }
+
+      .progress-ring {
+        transform: rotate(-90deg);
+      }
+
+      .progress-ring-circle {
+        transition: stroke-dashoffset 1s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-900 text-white">
+    <nav class="navbar fixed top-0 z-50 glassmorphism shadow-lg">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <label tabindex="0" class="btn btn-ghost lg:hidden">
+            <i class="fas fa-bars text-xl"></i>
+          </label>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow glassmorphism rounded-box w-52"
+          >
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#resume" class="nav-link">Resume</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+        <a href="#home" class="btn btn-ghost normal-case text-xl font-bold">
+          <span class="text-blue-400">Shanto</span> Islam
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#resume" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <label class="swap swap-rotate btn btn-ghost btn-circle">
+          <input type="checkbox" id="themeToggle" />
+          <i class="fas fa-sun swap-on text-xl"></i>
+          <i class="fas fa-moon swap-off text-xl"></i>
+        </label>
+      </div>
+    </nav>
+
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center gradient-bg relative overflow-hidden"
+    >
+      <div id="particles" class="absolute inset-0"></div>
+      <div class="container mx-auto px-4 text-center z-10">
+        <div class="floating">
+          <div class="avatar mb-8">
+            <div
+              class="w-48 rounded-full ring ring-blue-400 ring-offset-base-100 ring-offset-2"
+            >
+              <img src="img/Image of Shanto (1).jpg" alt="Shanto Islam" />
+            </div>
+          </div>
+        </div>
+        <h1
+          class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+        >
+          Shanto Islam
+        </h1>
+        <h2 class="text-2xl md:text-4xl font-semibold mb-6 text-blue-300">
+          Frontend Developer
+        </h2>
+        <div class="max-w-2xl mx-auto mb-8">
+          <p class="text-lg md:text-xl text-gray-300" id="typewriterEl"></p>
+        </div>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="#contact" class="btn btn-primary btn-lg glow-button">
+            <i class="fas fa-briefcase mr-2"></i>
+            Hire Me
+          </a>
+          <a
+            href="#projects"
+            class="btn btn-outline btn-primary btn-lg glow-button"
+          >
+            <i class="fas fa-code mr-2"></i>
+            View Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-slate-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal">
+          About <span class="text-blue-400">Me</span>
+        </h2>
+        <div class="max-w-3xl mx-auto">
+          <div class="reveal space-y-6">
+            <h3
+              class="text-3xl font-bold text-blue-400 text-center md:text-left"
+            >
+              Hello There!
+            </h3>
+            <p
+              class="text-lg text-gray-300 leading-relaxed text-center md:text-left"
+            >
+              I'm Shanto Islam, a passionate Frontend Developer currently
+              pursuing my Bachelor's degree in Computer Science and Engineering.
+              I love creating beautiful, responsive, and dynamic web experiences
+              that bring ideas to life.
+            </p>
+            <p
+              class="text-lg text-gray-300 leading-relaxed text-center md:text-left"
+            >
+              With a strong foundation in modern web technologies and a keen eye
+              for design, I transform complex problems into simple, elegant
+              solutions. I'm constantly learning and exploring new technologies
+              to stay ahead in this ever-evolving field.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+              <div class="stat glassmorphism rounded-2xl">
+                <div class="stat-title text-gray-400">Projects</div>
+                <div class="stat-value text-blue-400">15+</div>
+              </div>
+              <div class="stat glassmorphism rounded-2xl">
+                <div class="stat-title text-gray-400">Technologies</div>
+                <div class="stat-value text-blue-400">20+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-slate-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal">
+          My <span class="text-blue-400">Skills</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card glassmorphism shadow-xl reveal">
+            <div class="card-body">
+              <h3 class="card-title text-2xl text-blue-400 mb-4">
+                <i class="fas fa-laptop-code mr-2"></i>
+                Frontend
+              </h3>
+              <div class="space-y-4">
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>HTML5</span>
+                    <span>95%</span>
+                  </div>
+                  <progress
+                    class="progress progress-primary w-full"
+                    value="0"
+                    max="100"
+                    data-value="95"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>CSS3 / Tailwind</span>
+                    <span>90%</span>
+                  </div>
+                  <progress
+                    class="progress progress-primary w-full"
+                    value="0"
+                    max="100"
+                    data-value="90"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>JavaScript</span>
+                    <span>85%</span>
+                  </div>
+                  <progress
+                    class="progress progress-primary w-full"
+                    value="0"
+                    max="100"
+                    data-value="85"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>DaisyUI</span>
+                    <span>88%</span>
+                  </div>
+                  <progress
+                    class="progress progress-primary w-full"
+                    value="0"
+                    max="100"
+                    data-value="88"
+                  ></progress>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card glassmorphism shadow-xl reveal">
+            <div class="card-body">
+              <h3 class="card-title text-2xl text-purple-400 mb-4">
+                <i class="fas fa-server mr-2"></i>
+                Backend
+              </h3>
+              <div class="space-y-4">
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>PHP</span>
+                    <span>50%</span>
+                  </div>
+                  <progress
+                    class="progress progress-secondary w-full"
+                    value="0"
+                    max="100"
+                    data-value="75"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>MySQL</span>
+                    <span>80%</span>
+                  </div>
+                  <progress
+                    class="progress progress-secondary w-full"
+                    value="0"
+                    max="100"
+                    data-value="80"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>SQL</span>
+                    <span>78%</span>
+                  </div>
+                  <progress
+                    class="progress progress-secondary w-full"
+                    value="0"
+                    max="100"
+                    data-value="78"
+                  ></progress>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card glassmorphism shadow-xl reveal">
+            <div class="card-body">
+              <h3 class="card-title text-2xl text-green-400 mb-4">
+                <i class="fas fa-tools mr-2"></i>
+                Tools
+              </h3>
+              <div class="space-y-4">
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>Git</span>
+                    <span>82%</span>
+                  </div>
+                  <progress
+                    class="progress progress-success w-full"
+                    value="0"
+                    max="100"
+                    data-value="82"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>Canva</span>
+                    <span>92%</span>
+                  </div>
+                  <progress
+                    class="progress progress-success w-full"
+                    value="0"
+                    max="100"
+                    data-value="92"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>Figma</span>
+                    <span>70%</span>
+                  </div>
+                  <progress
+                    class="progress progress-success w-full"
+                    value="0"
+                    max="100"
+                    data-value="70"
+                  ></progress>
+                </div>
+                <div class="skill-item">
+                  <div class="flex justify-between mb-2">
+                    <span>MS office</span>
+                    <span>90%</span>
+                  </div>
+                  <progress
+                    class="progress progress-success w-full"
+                    value="0"
+                    max="100"
+                    data-value="90"
+                  ></progress>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-slate-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal">
+          My <span class="text-blue-400">Projects</span>
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card glassmorphism shadow-xl project-card reveal">
+            <figure class="px-3 pt-3">
+              <div
+                class="w-full h-40 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-car text-5xl text-white"></i>
+              </div>
+            </figure>
+            <div class="card-body p-5">
+              <h3 class="card-title text-lg">Autosphere - A Car Hub</h3>
+              <p class="text-gray-400 text-sm">
+                Complete project using PHP, HTML, CSS, JavaScript, Bootstrap, tailwindcss, Python .
+              </p>
+              <div class="flex flex-wrap gap-2 my-2">
+                <span class="badge badge-primary badge-sm">PHP</span>
+                <span class="badge badge-secondary badge-sm">HTML</span>
+                <span class="badge badge-accent badge-sm">CSS</span>
+                 <span class="badge badge-primary badge-sm">JavaScript</span>
+                <span class="badge badge-secondary badge-sm">Python</span>
+                <span class="badge badge-accent badge-sm">Bootstrap</span>
+              </div>
+              <div class="card-actions justify-end mt-2">
+                <a href="https://github.com/shantoislam242/autosphere"
+                  target="_blank"
+                  class="btn btn-outline btn-primary btn-sm">
+                  <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card glassmorphism shadow-xl project-card reveal">
+            <figure class="px-3 pt-3">
+              <div
+                class="w-full h-40 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fab fa-airbnb text-5xl text-white"></i>
+              </div>
+            </figure>
+            <div class="card-body p-5">
+              <h3 class="card-title text-lg">Airbnb Home Page Clone</h3>
+              <p class="text-gray-400 text-sm">
+                A clone of the Airbnb home page (frontend only).
+              </p>
+              <div class="flex flex-wrap gap-2 my-2">
+                <span class="badge badge-primary badge-sm">Tailwind</span>
+                <span class="badge badge-secondary badge-sm">JavaScript</span>
+                <span class="badge badge-accent badge-sm">HTML</span>
+              </div>
+              <div class="card-actions justify-end mt-2">
+               <a href="https://shantoislam242.github.io/-Intern-Front-end-Developer/" target="_blank" class="btn btn-primary btn-sm">Live</a>
+
+                <a href="https://github.com/shantoislam242/-Intern-Front-end-Developer" target="_blank" class="btn btn-outline btn-primary btn-sm">GitHub</a>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card glassmorphism shadow-xl project-card reveal">
+            <figure class="px-3 pt-3">
+              <div
+                class="w-full h-40 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-couch text-5xl text-white"></i>
+              </div>
+            </figure>
+            <div class="card-body p-5">
+              <h3 class="card-title text-lg">Rinterio - House Design</h3>
+              <p class="text-gray-400 text-sm">
+                Home page for a house design and interior website.
+              </p>
+              <div class="flex flex-wrap gap-2 my-2">
+                <span class="badge badge-primary badge-sm">HTML</span>
+                <span class="badge badge-secondary badge-sm">CSS</span>
+                <span class="badge badge-accent badge-sm">Tailwind</span>
+              </div>
+              <div class="card-actions justify-end mt-2">
+                <a href="https://shantoislam242.github.io/assignment-3/" target="_blank" class="btn btn-primary btn-sm">Live</a>
+
+                <a href="https://github.com/shantoislam242/assignment-3" target="_blank" class="btn btn-outline btn-primary btn-sm">GitHub</a>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card glassmorphism shadow-xl project-card reveal">
+            <figure class="px-3 pt-3">
+              <div
+                class="w-full h-40 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-motorcycle text-5xl text-white"></i>
+              </div>
+            </figure>
+            <div class="card-body p-5">
+              <h3 class="card-title text-lg">Bike Dekho</h3>
+              <p class="text-gray-400 text-sm">
+                Bikers showroom website home page .
+              </p>
+              <div class="flex flex-wrap gap-2 my-2">
+                <span class="badge badge-primary badge-sm">HTML</span>
+                <span class="badge badge-secondary badge-sm">CSS</span>
+                <span class="badge badge-accent badge-sm">Bootstrap 5</span>
+              </div>
+              <div class="card-actions justify-end mt-2">
+                 <a href="https://shantoislam242.github.io/bikers-zone/" target="_blank" class="btn btn-primary btn-sm">Live</a>
+
+                <a href="https://github.com/shantoislam242/bikers-zone" target="_blank" class="btn btn-outline btn-primary btn-sm">GitHub</a>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card glassmorphism shadow-xl project-card reveal">
+            <figure class="px-3 pt-3">
+              <div
+                class="w-full h-40 bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-drafting-compass text-5xl text-white"></i>
+              </div>
+            </figure>
+            <div class="card-body p-5">
+              <h3 class="card-title text-lg">G3 Architects</h3>
+              <p class="text-gray-400 text-sm">
+                Landing page for an architecture firm.
+              </p>
+              <div class="flex flex-wrap gap-2 my-2">
+                <span class="badge badge-primary badge-sm">HTML</span>
+                <span class="badge badge-secondary badge-sm">CSS</span>
+                <span class="badge badge-accent badge-sm">Tailwind</span>
+              </div>
+              <div class="card-actions justify-end mt-2">
+                 <a href="https://shantoislam242.github.io/g3-architects-website/" target="_blank" class="btn btn-primary btn-sm">Live</a>
+
+                <a href="https://github.com/shantoislam242/g3-architects-website" target="_blank" class="btn btn-outline btn-primary btn-sm">GitHub</a>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card glassmorphism shadow-xl project-card reveal">
+            <figure class="px-3 pt-3">
+              <div
+                class="w-full h-40 bg-gradient-to-br from-red-600 to-yellow-500 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-dumbbell text-5xl text-white"></i>
+              </div>
+            </figure>
+            <div class="card-body p-5">
+              <h3 class="card-title text-lg">Fitness - Gym</h3>
+              <p class="text-gray-400 text-sm">
+                Responsive gym website home page.
+              </p>
+              <div class="flex flex-wrap gap-2 my-2">
+                <span class="badge badge-primary badge-sm">Tailwind</span>
+                <span class="badge badge-secondary badge-sm">Bootstrap</span>
+                <span class="badge badge-accent badge-sm">Responsive</span>
+              </div>
+              <div class="card-actions justify-end mt-2">
+                 <a href="https://shantoislam242.github.io/assignment-2/" target="_blank" class="btn btn-primary btn-sm">Live</a>
+
+                <a href="https://github.com/shantoislam242/assignment-2" target="_blank" class="btn btn-outline btn-primary btn-sm">GitHub</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="py-20 bg-slate-900">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 reveal">
+          My <span class="text-blue-400">Resume</span>
+        </h2>
+        <p class="text-xl text-gray-300 mb-12 reveal">
+          Interested in working together? Download my resume to learn more about
+          my experience and skills.
+        </p>
+        <div class="reveal">
+          <a
+            href="cv/Shanto-Islam-Resume.pdf"
+            download="Shanto-Islam-Resume.pdf"
+            class="btn btn-primary btn-lg glow-button gap-2"
+          >
+            <i class="fas fa-download text-xl"></i>
+            Download CV
+            <span class="badge badge-secondary">PDF</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal">
+          Get In <span class="text-blue-400">Touch</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="reveal">
+            <div class="card glassmorphism shadow-xl">
+              <div class="card-body">
+                <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                <form id="contactForm" class="space-y-4">
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Your Name</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="John Doe"
+                      class="input input-bordered w-full"
+                      required
+                    />
+                    <span class="text-error text-sm mt-1 hidden" id="nameError"
+                      >Name is required</span
+                    >
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Your Email</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="john@example.com"
+                      class="input input-bordered w-full"
+                      required
+                    />
+                    <span class="text-error text-sm mt-1 hidden" id="emailError"
+                      >Valid email is required</span
+                    >
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Message</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      class="textarea textarea-bordered h-32"
+                      placeholder="Your message here..."
+                      required
+                    ></textarea>
+                    <span
+                      class="text-error text-sm mt-1 hidden"
+                      id="messageError"
+                      >Message is required</span
+                    >
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary w-full glow-button"
+                  >
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Send Message
+                  </button>
+                </form>
+                <div
+                  id="successMessage"
+                  class="alert alert-success mt-4 hidden"
+                >
+                  <i class="fas fa-check-circle"></i>
+                  <span>Message sent successfully!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal space-y-8">
+            <div class="card glassmorphism shadow-xl">
+              <div class="card-body">
+                <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center"
+                    >
+                      <i class="fas fa-envelope text-xl"></i>
+                    </div>
+                    <div>
+                      <p class="font-semibold">Email</p>
+                      <p class="text-gray-400">shantoislam1357@gmail.com</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center"
+                    >
+                      <i class="fas fa-phone text-xl"></i>
+                    </div>
+                    <div>
+                      <p class="font-semibold">Phone</p>
+                      <p class="text-gray-400">+880 1785595259</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center"
+                    >
+                      <i class="fas fa-map-marker-alt text-xl"></i>
+                    </div>
+                    <div>
+                      <p class="font-semibold">Location</p>
+                      <p class="text-gray-400">Dhaka, Bangladesh</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card glassmorphism shadow-xl">
+              <div class="card-body">
+                <h3 class="text-2xl font-bold mb-6">Follow Me</h3>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/shantoislam242"
+                    target="_blank"
+                    class="btn btn-circle btn-outline btn-primary text-xl hover:scale-110 transition-transform"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    class="btn btn-circle btn-outline btn-primary text-xl hover:scale-110 transition-transform"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  
+                  <a
+                    href="https://www.facebook.com/shantoIsBusy/"
+                    target="_blank"
+                    class="btn btn-circle btn-outline btn-primary text-xl hover:scale-110 transition-transform"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer footer-center p-4 bg-slate-900 text-base-content">
+      <aside>
+        <p class="text-gray-400">
+          Copyright © 2024 - All right reserved by Shanto Islam
+        </p>
+      </aside>
+    </footer>
+
+    <button
+      id="scrollTop"
+      class="btn btn-primary btn-circle fixed bottom-4 right-4 z-50 opacity-0 transform translate-y-12"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Theme Toggle
+        const themeToggle = document.getElementById("themeToggle");
+        const html = document.documentElement;
+
+        // Check saved theme in local storage
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+          html.setAttribute("data-theme", "light");
+          themeToggle.checked = true;
+        } else {
+          html.setAttribute("data-theme", "dark");
+          themeToggle.checked = false;
+        }
+
+        themeToggle.addEventListener("change", () => {
+          if (themeToggle.checked) {
+            html.setAttribute("data-theme", "light");
+            localStorage.setItem("theme", "light");
+          } else {
+            html.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+          }
+        });
+
+        // 2. Scroll Animations (Reveal)
+        const revealElements = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        // 3. Scroll to Top Button
+        const scrollTopBtn = document.getElementById("scrollTop");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            scrollTopBtn.classList.remove("opacity-0", "translate-y-12");
+          } else {
+            scrollTopBtn.classList.add("opacity-0", "translate-y-12");
+          }
+        });
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // 4. Nav Active State (Scroll Spy)
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        const navObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.id;
+                navLinks.forEach((link) => {
+                  link.classList.remove("nav-active");
+                  if (link.getAttribute("href") === `#${id}`) {
+                    link.classList.add("nav-active");
+                  }
+                });
+              }
+            });
+          },
+          { rootMargin: "-30% 0px -70% 0px" }
+        ); // Trigger when section is in the middle 30% of viewport
+
+        sections.forEach((sec) => navObserver.observe(sec));
+
+        // 5. Typewriter Effect
+        const typewriterElement = document.getElementById("typewriterEl");
+        const words = [
+          "I build modern web applications.",
+          "I create responsive layouts.",
+          "I love clean and efficient code.",
+          "I am a lifelong learner.",
+        ];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+          const currentWord = words[wordIndex];
+          const typeSpeed = isDeleting ? 75 : 150;
+
+          typewriterElement.textContent = currentWord.substring(0, charIndex);
+          typewriterElement.classList.add("typewriter"); // Add animation class
+
+          if (!isDeleting && charIndex < currentWord.length) {
+            charIndex++;
+          } else if (isDeleting && charIndex > 0) {
+            charIndex--;
+          } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+              wordIndex = (wordIndex + 1) % words.length;
+            }
+          }
+
+          // Pause at end of word
+          const pauseTime = charIndex === currentWord.length ? 2000 : typeSpeed;
+          setTimeout(type, pauseTime);
+        }
+        type(); // Start the effect
+
+        // 6. Particle Effect on Hero
+        const particlesContainer = document.getElementById("particles");
+        for (let i = 0; i < 30; i++) {
+          let particle = document.createElement("div");
+          particle.classList.add("particle");
+          let size = Math.random() * 5 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.animation = `floating ${
+            Math.random() * 3 + 3
+          }s ease-in-out infinite ${Math.random() * 2}s`;
+          particlesContainer.appendChild(particle);
+        }
+
+        // 7. Skill Bar Animation
+        const skillSection = document.getElementById("skills");
+        const progressBars = document.querySelectorAll(".skill-item progress");
+
+        const skillObserver = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              progressBars.forEach((bar) => {
+                bar.value = bar.dataset.value;
+              });
+              skillObserver.unobserve(skillSection); // Animate only once
+            }
+          },
+          { threshold: 0.5 }
+        );
+
+        skillObserver.observe(skillSection);
+
+        // 8. Contact Form Validation
+        const contactForm = document.getElementById("contactForm");
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const message = document.getElementById("message");
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const messageError = document.getElementById("messageError");
+        const successMessage = document.getElementById("successMessage");
+
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let isValid = true;
+
+          // Reset errors
+          [name, email, message].forEach((el) =>
+            el.classList.remove("input-error", "textarea-error")
+          );
+          [nameError, emailError, messageError, successMessage].forEach((el) =>
+            el.classList.add("hidden")
+          );
+
+          if (name.value.trim() === "") {
+            name.classList.add("input-error");
+            nameError.classList.remove("hidden");
+            isValid = false;
+          }
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email.value)) {
+            email.classList.add("input-error");
+            emailError.classList.remove("hidden");
+            isValid = false;
+          }
+          if (message.value.trim() === "") {
+            message.classList.add("textarea-error");
+            messageError.classList.remove("hidden");
+            isValid = false;
+          }
+
+          if (isValid) {
+            // Real form submission logic goes here (e.g., fetch to an API)
+            console.log("Form Submitted:", {
+              name: name.value,
+              email: email.value,
+              message: message.value,
+            });
+            successMessage.classList.remove("hidden");
+            contactForm.reset();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
